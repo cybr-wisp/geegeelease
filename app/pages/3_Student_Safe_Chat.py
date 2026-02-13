@@ -1,7 +1,14 @@
 import streamlit as st
 from datetime import datetime
 from app.utils import init_state, load_listings, risk_detect
+import sys
+from pathlib import Path
 
+APP_DIR = Path(__file__).resolve().parents[1]  # points to .../app
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+from utils import *   # TEMP: gets you working fast
 init_state()
 from app.utils import get_listings
 df = get_listings()

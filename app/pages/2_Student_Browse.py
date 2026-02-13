@@ -1,4 +1,17 @@
 import streamlit as st
+
+
+import sys
+from pathlib import Path
+
+APP_DIR = Path(__file__).resolve().parents[1]  # points to .../app
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+from utils import *   # TEMP: gets you working fast
+
+
+
 from app.utils import (
     inject_css, init_state, get_listings, ensure_selected_listing,
     compute_price_band, trust_badge, trust_status,
